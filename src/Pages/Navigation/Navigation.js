@@ -3,6 +3,8 @@ import { Button, Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import css from '../Style/style.css';
+import { HashLink } from 'react-router-hash-link';
+
 
 const Navigation = () => {
 
@@ -23,6 +25,10 @@ const Navigation = () => {
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="ms-auto" text="white">
                             {/* <Link to=''></Link> */}
+                            <Nav.Link as={HashLink} to="/">Home</Nav.Link>
+                        <Nav.Link as={HashLink} to="/home#about">About Us</Nav.Link>
+                        <Nav.Link as={HashLink} to="/home#services">Services</Nav.Link>
+                        <Nav.Link as={HashLink} to="/home#contact">Contact</Nav.Link>
                         </Nav>
 
                         <Nav className="ms-auto">
@@ -36,6 +42,9 @@ const Navigation = () => {
                                                 <br></br>
                                                 <Link to='/order'>
                                                     <Button>My Orders</Button>
+                                                </Link>
+                                                <Link to='/dashboard'>
+                                                    <Button>Dashboard</Button>
                                                 </Link>
                                             </>
                                         </NavDropdown.Item>

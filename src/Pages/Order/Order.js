@@ -77,7 +77,7 @@ const Order = () => {
         tCost = sCost + tCost;
     }
 
-    console.log(tCost);
+    // console.log(tCost);
 
 
     // payment

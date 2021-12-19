@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import css from '../../Style/style.css';
 import reg from '../../../img/register.jpg';
@@ -8,6 +8,8 @@ import reg from '../../../img/register.jpg';
 const Register = () => {
     const { user, registerUser, loading, authError } = useAuth();
     const [loginData, setLoginData] = useState({});
+    const location = useLocation();
+    const navigate = useNavigate();
 
     const handleOnChange = e => {
         const field = e.target.name;
@@ -22,9 +24,9 @@ const Register = () => {
 
     const submitRegister = e => {
         if (loginData.password !== loginData.password2) {
-            alert('Please help me')
+            alert('Please set both password same.')
         }
-        registerUser(loginData.email, loginData.password, loginData.name, loginData.username)
+        registerUser(loginData.email, loginData.password, loginData.name, loginData.username, location, navigate)
         // loginData = '';
         e.preventDefault();
 

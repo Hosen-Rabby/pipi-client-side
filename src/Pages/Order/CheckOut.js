@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import useAuth from '../../hooks/useAuth';
 
 const CheckOut = ({ payItem }) => {
+
     const { user } = useAuth();
     const stripe = useStripe();
     const elements = useElements();
@@ -12,6 +13,7 @@ const CheckOut = ({ payItem }) => {
     const [success, setSuccess] = useState('');
 
     const { price } = payItem;
+    console.log(price);
 
     useEffect(() => {
         fetch('http://localhost:5000/create-payment-intent', {

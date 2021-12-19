@@ -15,11 +15,13 @@ const useFirebase = () => {
 
     // register user
 
-    const registerUser = (email, password) => {
+    const registerUser = (email, password,location, navigate ) => {
         setLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 setAuthError('');
+                const destination = location?.state?.from || '/';
+                navigate(destination)
             })
             .catch((error) => {
                 setAuthError('Email id already taken.');
@@ -35,8 +37,8 @@ const useFirebase = () => {
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 setAuthError('');
-                // const destination = location?.state?.from || '/';
-                // navigate.replace(destination)
+                const destination = location?.state?.from || '/';
+                navigate(destination)
             })
             .catch((error) => {
                 setAuthError('Please enter right email or password.');

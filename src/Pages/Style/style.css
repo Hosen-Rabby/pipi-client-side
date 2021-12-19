@@ -214,6 +214,20 @@
 
 
 
+/* admin */
+/* admin end */
+
+
+/* dashboard */
+
+.dashboard, .admin{
+    min-height: 80vh;
+}
+
+/* dashboard end */
+
+
+
 /* Footer */
 
 .footer{

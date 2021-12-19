@@ -51,6 +51,7 @@ const Login = () => {
                         <div className='log_right'>
                             <div className='log_text'>
                                 <h3>Login to Pipi</h3>
+                                <h5>New user? <Link to='/register'>Register</Link></h5>
                             </div>
                             <form onSubmit={submitLogin} method=''>
                                 <Form.Group className="mb-3" controlId="email">
