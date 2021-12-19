@@ -13,7 +13,7 @@ const SingleItem = () => {
     const { name, details, price, sku, desc, img, img2, img3, img4 } = items;
     
     useEffect(() => {
-        fetch(`http://localhost:5000/items/${id}`)
+        fetch(`https://secure-temple-89823.herokuapp.com/items/${id}`)
             .then(res => res.json())
             .then(data => setItems(data))
     }, []);
@@ -21,7 +21,7 @@ const SingleItem = () => {
     // order
     const orderAdd = { name, email, details, price, sku, desc, img, img2, img3, img4 }
     const submitOrder = e => {
-        fetch('http://localhost:5000/orders', {
+        fetch('https://secure-temple-89823.herokuapp.com/orders', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

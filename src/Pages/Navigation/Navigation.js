@@ -26,9 +26,9 @@ const Navigation = () => {
                         <Nav className="ms-auto" text="white">
                             {/* <Link to=''></Link> */}
                             <Nav.Link as={HashLink} to="/">Home</Nav.Link>
-                        <Nav.Link as={HashLink} to="/home#about">About Us</Nav.Link>
-                        <Nav.Link as={HashLink} to="/home#services">Services</Nav.Link>
-                        <Nav.Link as={HashLink} to="/home#contact">Contact</Nav.Link>
+                        {/* <Nav.Link as={HashLink} to="/#varities">Vsrities</Nav.Link>
+                        <Nav.Link as={HashLink} to="/home#all">All Items</Nav.Link>
+                        <Nav.Link as={HashLink} to="/home#review">Reviews</Nav.Link> */}
                         </Nav>
 
                         <Nav className="ms-auto">

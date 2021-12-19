@@ -10,16 +10,12 @@ const Banner = () => {
     return (
         <div className='banner'>
             <Carousel>
-                <Carousel.Item interval={250}>
+                <Carousel.Item interval={2500}>
                     <img
                         className="d-block img-fluid slide_img"
                         src={pizza}
                         alt="First slide"
                     />
-                    <Carousel.Caption>
-                        <h3>First slide label</h3>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                    </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item interval={2000}>
                     <img
@@ -27,10 +23,6 @@ const Banner = () => {
                         src={slide}
                         alt="First slide"
                     />
-                    <Carousel.Caption>
-                        <h3>First slide label</h3>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                    </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item interval={2000}>
                     <img
@@ -38,10 +30,6 @@ const Banner = () => {
                         src={slide2}
                         alt="First slide"
                     />
-                    <Carousel.Caption>
-                        <h3>First slide label</h3>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                    </Carousel.Caption>
                 </Carousel.Item>
 
             </Carousel>

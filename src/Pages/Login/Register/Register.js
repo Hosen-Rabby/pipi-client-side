@@ -37,7 +37,7 @@ const Register = () => {
         const password2 = loginData.password2;
 
         const user = { name, userName, email, password, password2 };
-        fetch('http://localhost:5000/users', {
+        fetch('https://secure-temple-89823.herokuapp.com/users', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

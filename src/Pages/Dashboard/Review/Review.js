@@ -30,7 +30,7 @@ const Review = () => {
         const date = getdate.toDateString();
 
         const reviewAdd = { name, subject, email, thought, date };
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://secure-temple-89823.herokuapp.com/reviews', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

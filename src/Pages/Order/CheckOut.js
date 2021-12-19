@@ -16,7 +16,7 @@ const CheckOut = ({ payItem }) => {
     console.log(price);
 
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://secure-temple-89823.herokuapp.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

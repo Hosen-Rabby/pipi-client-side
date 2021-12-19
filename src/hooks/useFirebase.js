@@ -10,6 +10,8 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
     const [loading, setLoading] = useState(true);
     const [authError, setAuthError] = useState('');
+    const [admin, setAdmin] = useState(false);
+
 
     const auth = getAuth();
 
@@ -76,9 +78,17 @@ const useFirebase = () => {
         return () => unsubscribed;
     }, [])
 
+    
+    useEffect(() => {
+        fetch(`https://secure-temple-89823.herokuapp.com/users/${user.email}`)
+            .then(res => res.json())
+            .then(data => setAdmin(data.admin))
+    }, [user.email])
+
 
     return {
         user,
+        admin,
         loading,
         authError,
         registerUser,

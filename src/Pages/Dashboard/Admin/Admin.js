@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Col, Container, Form, Row } from 'react-bootstrap';
+import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import useAuth from '../../../hooks/useAuth';
 import css from '../../Style/style.css';
 
@@ -7,14 +7,16 @@ const Admin = () => {
 
     const [email, setEmail] = useState('');
     const [success, setSuccess] = useState(false);
-    const { token, isLoading } = useAuth();
+    const { token, loading } = useAuth();
 
     const handleOnBlur = e => {
         setEmail(e.target.value);
     }
     const handleAdminSubmit = e => {
+        e.preventDefault()
+
         const user = { email };
-        fetch('http://localhost:5000/users/admin', {
+        fetch('https://secure-temple-89823.herokuapp.com/users/admin', {
             method: 'PUT',
             headers: {
                 // 'authorization': `Bearer ${token}`,
@@ -25,12 +27,12 @@ const Admin = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount) {
-                    console.log(data);
+                    // console.log(data);
                     setEmail('');
                     setSuccess(true);
                 }
             })
-        isLoading();
+        // loading();
 
         e.preventDefault()
     }
@@ -44,9 +46,9 @@ const Admin = () => {
                             <Form.Group className="mb-3" controlId="formBasicEmail">
                                 <Form.Control type="email" onBlur={handleOnBlur} name='email' placeholder="Enter email" className='admin_inp' required />
                             </Form.Group>
-                            <button variant="primary" type="submit" className='post'>
+                            <Button variant="primary" type="submit" className='post'>
                                 Make Admin
-                            </button>
+                            </Button>
                         </Form>
                         {success && <h6>Succesfully made an admin</h6>}
                     </Col>

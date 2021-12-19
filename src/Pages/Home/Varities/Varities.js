@@ -1,12 +1,14 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import var1 from '../../../img/var1.png';
+import pepsi from '../../../img/pepsi.png';
+import fre from '../../../img/french.jpg';
 
 
 const Varities = () => {
     return (
         <>
-            <div className='varities'>
+            <div className='varities' id='varities'>
                 <Container>
                     <Row>
                         <Col lg={4} sm={6}>
@@ -25,11 +27,11 @@ const Varities = () => {
                         <Col lg={4} sm={6}>
                             <div className='var_item'>
                                 <div className='item_text'>
-                                    <h3>Maxican Pizza</h3>
+                                    <h3>Soft Drinks</h3>
                                 </div>
                                 <div className='item_img'>
                                     <img
-                                        src={var1}
+                                        src={pepsi}
                                         className='img-fluid'
                                     />
                                 </div>
@@ -38,11 +40,11 @@ const Varities = () => {
                         <Col lg={4} sm={6}>
                             <div className='var_item'>
                                 <div className='item_text'>
-                                    <h3>Maxican Pizza</h3>
+                                    <h3>French Fries</h3>
                                 </div>
                                 <div className='item_img'>
                                     <img
-                                        src={var1}
+                                        src={fre}
                                         className='img-fluid'
                                     />
                                 </div>

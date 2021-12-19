@@ -6,10 +6,16 @@ const Views = (props) => {
     const { name, date, subject, thought } = props.view
     return (
         // <div>
+        <>
+            <h2></h2>
             <Col lg={4}>
-                <h4>{name}</h4><span>{date}</span>
-                <h6>{thought}</h6>
+                <div className='review_p'>
+
+                    <h4>{name}</h4><span>{date}</span>
+                    <h6>{thought}</h6>
+                </div>
             </Col>
+        </>
         // </div>
     );
 };

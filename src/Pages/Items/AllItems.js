@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import Item from './Item';
 import css from '../Style/style.css';
+import All from './All';
 
-const Items = () => {
+const AllItems = () => {
 
     const [items, setItems] = useState([]);
 
@@ -27,14 +28,14 @@ const Items = () => {
             </Row>
             <Row>
                 {
-                    items.map(product => <Item
+                    items.map(product => <All
                         key={product._id}
                         product={product}
-                    ></Item>)
+                    ></All>)
                 }
             </Row>
         </Container>
     );
 };
 
-export default Items;
+export default AllItems;

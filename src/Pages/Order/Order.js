@@ -13,11 +13,12 @@ const stripePromise = loadStripe('pk_test_51K7ynJGlpPduiwahpmSEfgFnDj8f7sAeC5lMt
 
 
 const Order = () => {
-    const { user } = useAuth()
+    const { user, loading } = useAuth()
 
     const [orderItems, setOrderItems] = useState([]);
     const count = orderItems.length;
 
+    // console.log(orderItems);
     // pay item
     const [payItem, setPayItem] = useState([]);
     console.log(payItem);
@@ -28,7 +29,7 @@ const Order = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myOrders/?email=${user.email}`)
+        fetch(`https://secure-temple-89823.herokuapp.com/myOrders/?email=${user.email}`)
             .then(res => res.json())
             .then(data => setOrderItems(data))
     }, []);
@@ -40,7 +41,7 @@ const Order = () => {
         const proceed = window.confirm('Do you really want to remove this item!');
 
         if (proceed) {
-            const url = `http://localhost:5000/orders/${id}`;
+            const url = `https://secure-temple-89823.herokuapp.com/orders/${id}`;
 
             fetch(url, {
                 method: 'DELETE'
@@ -98,54 +99,64 @@ const Order = () => {
 
 
     return (
-        <Container>
-            <div className='space'></div>
-            <Row>
-                <Col lg={7}>
-                    <h2>Order Summary</h2>
+        <div className='order'>
 
+            <Container>
+                <div className='space'></div>
+                <Row>
+                    <Col lg={7}>
+                        <h2>Order Summary</h2>
 
-                    {
-                        orderItems.map(order =>
-                            <div className='order_items'>
-                                <div className='item_img'>
-                                    <img src={order.img} width='140px' />
-                                </div>
-                                <div className='item_info'>
-                                    <h5>{order.name}</h5>
-                                    <h6>{order.desc}</h6>
-                                    <p>Price: ${order.price}</p>
-                                    <Button onClick={() => handleDelete(order._id)}>Remove</Button>
-                                    <Button onClick={() => handlePay(order._id)}>Pay</Button>
-                                </div>
-
-                            </div>
-                        )
-
-                    }
-                </Col>
-
-                <Col lg={5}>
-                    <div className='payment'>
-
-                        
-                        {/* <p>Total items : {count}</p>
-                        <h5>Total Cost :${tCost}</h5> */}
 
                         {
-                            payItem.price &&
-                            <>
-                            <h3>Payment Details</h3>
+                            
+                            (orderItems.length == 0) ?
+                                <h2>You haven't cart or order anything</h2>
+                                :
+                                <>
+                                    {
+                                        orderItems.map(order =>
+                                            <div className='order_items'>
+                                                <div className='item_img'>
+                                                    <img src={order.img} width='140px' />
+                                                </div>
+                                                <div className='item_info'>
+                                                    <h5>{order.name}</h5>
+                                                    <h6>{order.desc}</h6>
+                                                    <p>Price: ${order.price}</p>
+                                                    <Button onClick={() => handleDelete(order._id)}>Remove</Button>
+                                                    <Button onClick={() => handlePay(order._id)}>Pay</Button>
+                                                </div>
 
-                        <div className='pay_for'>
-                            <h4>Pay for: {name}</h4>
-                            <h3>Price: {price}</h3>
-                        </div>
-                        </>
+                                            </div>
+                                        )
+
+                                    }
+                                </>
                         }
+                    </Col>
 
-                        <div className='payment_details'>
-                            {/* <form>
+                    <Col lg={5}>
+                        <div className='payment'>
+
+
+                            {/* <p>Total items : {count}</p>
+                        <h5>Total Cost :${tCost}</h5> */}
+
+                            {
+                                payItem.price &&
+                                <>
+                                    <h3>Payment Details</h3>
+
+                                    <div className='pay_for'>
+                                        <h4>Pay for: {name}</h4>
+                                        <h3>Price: {price}</h3>
+                                    </div>
+                                </>
+                            }
+
+                            <div className='payment_details'>
+                                {/* <form>
 
                                 <Form.Group className="mb-3" controlId="name">
                                     <Form.Label>Phone</Form.Label>
@@ -163,20 +174,21 @@ const Order = () => {
                                 </Form.Group>
                             </form> */}
 
-                            {
-                                payItem?.price &&
-                                <Elements stripe={stripePromise}>
-                                    <CheckOut
-                                        payItem={payItem}
-                                    />
-                                </Elements>}
+                                {
+                                    payItem?.price &&
+                                    <Elements stripe={stripePromise}>
+                                        <CheckOut
+                                            payItem={payItem}
+                                        />
+                                    </Elements>}
+                            </div>
                         </div>
-                    </div>
-                </Col>
+                    </Col>
 
 
-            </Row>
-        </Container>
+                </Row>
+            </Container>
+        </div>
     );
 };
 

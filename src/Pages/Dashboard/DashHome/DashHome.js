@@ -9,7 +9,7 @@ const DashHome = () => {
 
    
     useEffect(() => {
-        fetch(`http://localhost:5000/dashusers/?email=${user.email}`)
+        fetch(`https://secure-temple-89823.herokuapp.com/dashusers/?email=${user.email}`)
             .then(res => res.json())
             .then(data => setDashUser(data))
     }, []);

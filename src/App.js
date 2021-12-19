@@ -19,6 +19,8 @@ import Review from './Pages/Dashboard/Review/Review';
 import Admin from './Pages/Dashboard/Admin/Admin';
 import AllOrders from './Pages/Dashboard/AllOrders/AllOrders';
 import MyOrders from './Pages/Dashboard/MyOrders/MyOrders';
+import DashHome from './Pages/Dashboard/DashHome/DashHome';
+import All from './Pages/Items/All';
 
 
 function App() {
@@ -26,17 +28,20 @@ function App() {
     <AuthProvider>
       <Navigation />
       <Routes>
+        <Route path="/" exact element={<Home />} />
         <Route path="/" element={<Home />} />
+        <Route path="/allitems" element={<All />} />
         <Route path="/items/:id" element={<PrivateRoute><SingleItem /></PrivateRoute>} />
         <Route path="/register" element={<Register />} />
+        <Route path="/order" element={<PrivateRoute><Order /></PrivateRoute>} />
         <Route path="/login" element={<Login />} />
-        <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
-          {/* <Route path={`/dashboard/payment`} element={<}></Route> */}
-          <Route path={`/dashboard/review`} element={<Review />}></Route>
+          <Route path="/dashboard" element={<PrivateRoute><Dashboard></Dashboard></PrivateRoute>}>
+            <Route exact path='/dashboard' element={<DashHome></DashHome>}></Route>
+        <Route path="review" element={<Review />}></Route>
           <Route path={`/dashboard/myorder`} element={<MyOrders />}></Route>
           <Route path={`/dashboard/admin`} element={<Admin />}></Route>
           <Route path={`/dashboard/allorders`} element={<AllOrders />}></Route>
-        <Route path="/order" element={<PrivateRoute><Order /></PrivateRoute>} />
+      </Route>
       </Routes>
       <Footer />
     </AuthProvider>

@@ -24,9 +24,7 @@ const Login = () => {
     }
 
     const submitLogin = e => {
-        if (loginData.password !== loginData.password2) {
-            alert('Type correct password')
-        }
+       
         logInUser(loginData.email, loginData.password, location, navigate )
         e.preventDefault();
         e.target.reset();
@@ -61,10 +59,6 @@ const Login = () => {
                                 <Form.Group className="mb-3" controlId="password">
                                     <Form.Label>Password</Form.Label>
                                     <Form.Control type="password" name="password" placeholder="" onChange={handleOnChange} />
-                                </Form.Group>
-                                <Form.Group className="mb-3" controlId="password2">
-                                    <Form.Label>Retype Password</Form.Label>
-                                    <Form.Control type="password" name="password2" placeholder="" onChange={handleOnChange} />
                                 </Form.Group>
 
                                 {user?.email?
