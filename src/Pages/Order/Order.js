@@ -62,7 +62,7 @@ const Order = () => {
     // pay item
 
     const handlePay = (id) => {
-        const url = `http://localhost:5000/orders/${id}`;
+        const url = `https://secure-temple-89823.herokuapp.com/orders/${id}`;
 
         fetch(url)
             .then(res => res.json())
