@@ -5,6 +5,9 @@
     height: 100vh;
 }
 
+a{
+    text-decoration: none;
+}
 
 /* banner end */
 
@@ -196,9 +199,10 @@
 
 .order_items{
     display: flex;
-    background-color: rgb(240, 229, 229);
-    margin: 5px 0;
-    padding: 20px 0;
+    background-color: rgb(235, 235, 235);
+    margin: 10px 0;
+    padding: 20px 5px;
+    color: #000;
 }
 
 .order_items .item_info{
@@ -246,7 +250,50 @@
     min-height: 80vh;
 }
 
+.dashboard{
+    /* background-color: #000; */
+    background-image: url('../../img/dashbg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.dashboard .dash{
+    background-color: rgba(53, 52, 52, 0.342);
+    padding: 50px 0;
+}
+.dash a{
+    text-decoration: none;
+}
+
+.dash_btn{
+    background-color: rgb(240, 148, 29);
+    display: block;
+    width: 100%;
+    border: 2px solid rgb(240, 148, 29);
+    margin: 10px 0;
+    padding: 15px 0;
+    font-weight: 500;
+}
+
+.dash_right{
+    background-color: rgba(48, 48, 48, 0.486);
+    color: #fff;
+    padding: 50px 30px;
+}
+
+.uni_btn{
+    background-color: rgb(240, 148, 29);
+    display: block;
+    border: 2px solid rgb(240, 148, 29);
+    margin: 10px 0;
+    padding: 10px 25px;
+    font-weight: 500;
+}
+
+
 /* dashboard end */
+
+
 
 /* order */
 

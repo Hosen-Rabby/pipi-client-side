@@ -41,14 +41,13 @@ const Admin = () => {
             <Container>
                 <Row>
                     <Col>
-                        <div className='space'></div>
                         <Form onSubmit={handleAdminSubmit}>
                             <Form.Group className="mb-3" controlId="formBasicEmail">
                                 <Form.Control type="email" onBlur={handleOnBlur} name='email' placeholder="Enter email" className='admin_inp' required />
                             </Form.Group>
-                            <Button variant="primary" type="submit" className='post'>
+                            <button className='uni_btn' variant="primary" type="submit" className='post'>
                                 Make Admin
-                            </Button>
+                            </button>
                         </Form>
                         {success && <h6>Succesfully made an admin</h6>}
                     </Col>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
@@ -9,10 +9,19 @@ import { HashLink } from 'react-router-hash-link';
 const Navigation = () => {
 
     const { user, logOutUser } = useAuth();
+    const [dashUser, setDashUser] = useState([]);
+    console.log(dashUser);
 
+
+    useEffect(() => {
+        fetch(`https://secure-temple-89823.herokuapp.com/dashusers/?email=${user.email}`)
+            .then(res => res.json())
+            .then(data => setDashUser(data))
+    }, []);
     const handleLogOut = e => {
         logOutUser();
     }
+
 
 
     return (
@@ -26,7 +35,7 @@ const Navigation = () => {
                         <Nav className="ms-auto" text="white">
                             {/* <Link to=''></Link> */}
                             <Nav.Link as={HashLink} to="/">Home</Nav.Link>
-                        {/* <Nav.Link as={HashLink} to="/#varities">Vsrities</Nav.Link>
+                            {/* <Nav.Link as={HashLink} to="/#varities">Vsrities</Nav.Link>
                         <Nav.Link as={HashLink} to="/home#all">All Items</Nav.Link>
                         <Nav.Link as={HashLink} to="/home#review">Reviews</Nav.Link> */}
                         </Nav>
@@ -35,16 +44,17 @@ const Navigation = () => {
 
                             {
                                 user?.email ?
-                                    <NavDropdown title={user.email} id="collasible-nav-dropdown">
+
+                                    < NavDropdown title={user.email} id="collasible-nav-dropdown">
                                         <NavDropdown.Item href="">
                                             <>
-                                                <Button onClick={handleLogOut}>Logout</Button>
+                                                <button className='uni_btn' onClick={handleLogOut}>Logout</button >
                                                 <br></br>
                                                 <Link to='/order'>
-                                                    <Button>My Orders</Button>
+                                                    <button className='uni_btn'>My Orders</button >
                                                 </Link>
                                                 <Link to='/dashboard'>
-                                                    <Button>Dashboard</Button>
+                                                    <button className='uni_btn'>Dashboard</button >
                                                 </Link>
                                             </>
                                         </NavDropdown.Item>
@@ -52,7 +62,7 @@ const Navigation = () => {
 
                                     :
                                     <Link to='/login'>
-                                        <Button>Login</Button>
+                                        <button className='uni_btn'>Login</button >
                                     </Link>
                             }
 
@@ -61,7 +71,7 @@ const Navigation = () => {
                 </Container>
             </Navbar>
 
-        </div>
+        </div >
     );
 };
 

@@ -107,7 +107,7 @@ const CheckOut = ({ payItem }) => {
                 {
                     proccess ? <p>Proccessing payment</p>
                         :
-                        <button type="submit" disabled={!stripe}>
+                        <button className='uni_btn' type="submit" disabled={!stripe}>
                             Pay Now (${payItem.price})
                         </button>}
             </form>

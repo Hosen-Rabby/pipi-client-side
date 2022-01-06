@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Col, Container, Form, Row } from 'react-bootstrap';
+import { button, Col, Container, Form, Row } from 'react-bootstrap';
 import useAuth from '../../../hooks/useAuth';
 
 const Review = () => {
@@ -10,9 +10,7 @@ const Review = () => {
     // console.log(email)
     const handleOnChange = e => {
         const field = e.target.name;
-        // console.log(field);
         const value = e.target.value;
-        // console.log(value);
         const newreview = { ...review };
         newreview[field] = value;
         setReview(newreview);
@@ -67,7 +65,7 @@ const Review = () => {
                                 <Form.Label>Write your thoughts</Form.Label>
                                 <textarea onChange={handleOnChange} class="form-control" id="exampleFormControlTextarea1" rows="3" name="thought" required></textarea>
                             </Form.Group>
-                            <Button type='submit'>Post Review</Button>
+                            <button className='uni_btn' className='uni_btn' type='submit'>Post Review</button>
 
 
                         </form>

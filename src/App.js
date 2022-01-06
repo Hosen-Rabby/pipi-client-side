@@ -36,7 +36,7 @@ function App() {
         <Route path="/order" element={<PrivateRoute><Order /></PrivateRoute>} />
         <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<PrivateRoute><Dashboard></Dashboard></PrivateRoute>}>
-            <Route exact path='/dashboard' element={<DashHome></DashHome>}></Route>
+             <Route exact path='/dashboard' element={<DashHome></DashHome>}></Route>
         <Route path="review" element={<Review />}></Route>
           <Route path={`/dashboard/myorder`} element={<MyOrders />}></Route>
           <Route path={`/dashboard/admin`} element={<Admin />}></Route>

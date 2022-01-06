@@ -102,14 +102,11 @@ const Order = () => {
         <div className='order'>
 
             <Container>
-                <div className='space'></div>
                 <Row>
                     <Col lg={7}>
                         <h2>Order Summary</h2>
-
-
                         {
-                            
+
                             (orderItems.length == 0) ?
                                 <h2>You haven't cart or order anything</h2>
                                 :
@@ -124,8 +121,8 @@ const Order = () => {
                                                     <h5>{order.name}</h5>
                                                     <h6>{order.desc}</h6>
                                                     <p>Price: ${order.price}</p>
-                                                    <Button onClick={() => handleDelete(order._id)}>Remove</Button>
-                                                    <Button onClick={() => handlePay(order._id)}>Pay</Button>
+                                                    <button className='uni_btn' onClick={() => handleDelete(order._id)}>Remove</button>
+                                                    <button className='uni_btn' onClick={() => handlePay(order._id)}>Pay</button>
                                                 </div>
 
                                             </div>

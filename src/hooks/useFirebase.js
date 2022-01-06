@@ -27,7 +27,6 @@ const useFirebase = () => {
             })
             .catch((error) => {
                 setAuthError('Email id already taken.');
-
             })
             .finally(() => setLoading(false));
     }
@@ -45,7 +44,7 @@ const useFirebase = () => {
             .catch((error) => {
                 setAuthError('Please enter right email or password.');
             })
-            .finally(() => setLoading(false));
+            // .finally(() => setLoading(false));
 
     }
 
@@ -61,6 +60,7 @@ const useFirebase = () => {
             .finally(() => setLoading(false));
 
     }
+
 
     // on auth change
 

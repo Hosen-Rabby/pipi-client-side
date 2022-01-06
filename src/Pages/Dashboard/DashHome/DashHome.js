@@ -15,7 +15,7 @@ const DashHome = () => {
     }, []);
 
     return (
-        <div>
+        <>
             {
                 dashUser.map(order =>
                     <Col>
@@ -25,7 +25,7 @@ const DashHome = () => {
                     </Col>
                 )
             }
-        </div>
+        </>
     );
 };
 

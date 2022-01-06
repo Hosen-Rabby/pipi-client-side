@@ -19,7 +19,7 @@ const SingleItem = () => {
     }, []);
 
     // order
-    const orderAdd = { name, email, details, price, sku, desc, img, img2, img3, img4 }
+    const orderAdd = { name, email, details, price, sku, desc, img, img2, img3, img4 };
     const submitOrder = e => {
         fetch('https://secure-temple-89823.herokuapp.com/orders', {
             method: "POST",

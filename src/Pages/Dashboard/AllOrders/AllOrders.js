@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 
 const AllOrders = () => {
-    const [orders, setOrders] =useState([]);
-    const {name} = orders;
+    const [orders, setOrders] = useState([]);
+    const { name } = orders;
 
     console.log(orders)
     useEffect(() => {
@@ -19,11 +19,12 @@ const AllOrders = () => {
                 <Row>
                     {
                         orders.map(order =>
-                            <Col>
-                            <h4>Name: {order.name}</h4>
-                            <h5>Price: {order.price}</h5>
-                            <h6>SKU: {order.sku}</h6>
-                            <p>Ordered by: {order.email}</p>
+                            <Col lg={4}>
+                                <img src={order.img} className='img-fluid'/>
+                                <p>Name: {order.name}</p>
+                                <p>Price: ${order.price}</p>
+                                <p>SKU: {order.sku}</p>
+                                <h6>Ordered by: {order.email}</h6>
                             </Col>
                         )
                     }

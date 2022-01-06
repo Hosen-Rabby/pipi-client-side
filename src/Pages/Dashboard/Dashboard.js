@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Col, Container, Row } from 'react-bootstrap';
+import { button, Col, Container, Row } from 'react-bootstrap';
 import Review from './Review/Review';
 import css from '../Style/style.css';
 import Admin from './Admin/Admin';
@@ -9,6 +9,7 @@ import { Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import DashHome from './DashHome/DashHome';
 import useAuth from '../../hooks/useAuth';
+import '../Style/style.css'
 
 const Dashboard = () => {
     const { user, admin } = useAuth();
@@ -19,20 +20,22 @@ const Dashboard = () => {
                 <Row>
                     <Col lg={3}>
                         <div className='dash'>
-                            <Link to='/dashboard'><Button>Dashboard</Button></Link>
-                            <Link to='/dashboard/review'><Button>Review</Button></Link>
-                            <Link to='/dashboard/myorder'><Button>My Order</Button></Link>
+                            <Link to='/dashboard'><button className='dash_btn'>Dashboard</button></Link>
+                            <Link to='/dashboard/review'><button className='dash_btn'>Review</button></Link>
+                            <Link to='/dashboard/myorder'><button className='dash_btn'>My Order</button></Link>
                             {
                                 admin &&
                                 <div>
-                                    <Link to='/dashboard/admin'><Button>Make Admin</Button></Link>
-                                    <Link to='/dashboard/allorders'><Button>Manage Order</Button></Link>
+                                    <Link to='/dashboard/admin'><button className='dash_btn'>Make Admin</button></Link>
+                                    <Link to='/dashboard/allorders'><button className='dash_btn'>Manage Order</button></Link>
                                 </div>
                             }
                         </div>
                     </Col>
                     <Col lg={9}>
-                        <Outlet />
+                        <div className='dash_right'>
+                            <Outlet />
+                        </div>
                     </Col>
                 </Row>
             </Container>
